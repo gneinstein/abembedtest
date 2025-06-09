@@ -4,7 +4,15 @@
 <meta charset="UTF-8">
 <title>test</title>
 		<!-- The script tags need to be included once per page where embeds appear. Putting it in the <head> tag will be fastest. -->
-	<script>function abConfigure(c) {window.actblueConfig = c}</script>
+	<script>
+  // override the hook so you get the payload as soon as it's ready
+  function abConfigure(c) {
+    window.actblueConfig = c;
+    console.log("✅ ActBlue config:", c);
+    // you can even immediately pull out the endpoint:
+    console.log("→ JSON endpoint is:", c.embed.endpoint);
+  }
+</script>
 	<script src="https://secure.actblue.com/cf/assets/actblue.js" async data-ab-source="snippet-20250609"></script>
 </head>
 
